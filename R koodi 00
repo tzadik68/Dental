@@ -1,0 +1,19 @@
+
+# R koodia, tallensin 17.10.2023
+# Kirjoitettu 05.01.2023
+# Käytetään dataa jossa myös HDI
+library(haven)
+library(stargazer)
+Dental_data_00 <- read_dta("Documents/Esa/Teksti/Tutkimus/Terveystalous/Hammas/Dental_data_00.dta")
+attach(Dental_data_00)
+# Mallit
+hammas00 <- lm(DMFT ~ smokers + lifeExp + growthConst)
+hammas01 <- lm(DMFT ~ smokers + lifeExp + growthConst+ dentists)
+hammas02 <- lm(DMFT ~ smokers + lifeExp + growthConst+ dentists+ alcohol + hci)
+hammas03 <- lm(DMFT ~ smokers + lifeExp + growthConst+ dentists+ alcohol + hci + inf)
+hammas04 <- lm(DMFT ~ smokers + lifeExp + growthConst+ dentists+ alcohol + hci + inf + urban)
+# tulosten taulukointi
+stargazer(hammas00, hammas01, hammas02, hammas03, hammas04, type = "text")
+# testataan HDI vs HCI
+hammas05 <- lm(DMFT ~ hdi)
+summary(hammas05)
