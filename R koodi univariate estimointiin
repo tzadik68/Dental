@@ -20,3 +20,10 @@ Malli18 <- lm(log(DMFT) ~ log(hdi))
 Malli19 <- lm(log(DMFT) ~ log(urban))
 
 # Tulostaulukon luominen
+# Luodaan 2 tulostaulukkoa, sillä 9 mallia ei mahdu yhteen taulukkoon
+
+stargazer(Malli11, Malli12, Malli13, Malli14, Malli15,
+          type = "html", out="tulos02_univ.html")
+
+stargazer(Malli16, Malli17, Malli18, Malli19,
+          type = "html", out="tulos03_univ.html")
