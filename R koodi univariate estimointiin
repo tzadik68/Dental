@@ -1,0 +1,22 @@
+# 22.11.2023 univariate mallit
+# R koodi
+# Malleja tarvitaan 9 kpl
+# Ladataan kirjastot
+library(haven)
+library(stargazer)
+
+# siirry working directoryyn jossa data: eli esim. setwd("U:/Tekstit/Tutkimus/Terveystaloustiede/Hammaslaaketiede")
+Dental_data_05 <- read_dta("Dental_data_03.dta")
+attach(Dental_data_05)
+
+Malli11 <- lm(log(DMFT) ~ log(lifeExp))
+Malli12 <- lm(log(DMFT) ~ log(dentists))
+Malli13 <- lm(log(DMFT) ~ log(unemp))
+Malli14 <- lm(log(DMFT) ~ growthCap)
+Malli15 <- lm(log(DMFT) ~ log(education))
+Malli16 <- lm(log(DMFT) ~ log(sugar))
+Malli17 <- lm(log(DMFT) ~ log(smokers))
+Malli18 <- lm(log(DMFT) ~ log(hdi)) 
+Malli19 <- lm(log(DMFT) ~ log(urban))
+
+# Tulostaulukon luominen
